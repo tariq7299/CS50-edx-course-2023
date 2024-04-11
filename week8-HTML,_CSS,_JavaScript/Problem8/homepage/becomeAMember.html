@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="becomeAmember.css" rel="stylesheet">
+
+        <title>Become a Memeber</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+
+        <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("form").submit(function(event) {
+                // Prevents the default form submission behavior
+                event.preventDefault();
+
+                // Check if all required fields are filled
+                if (this.checkValidity()) {
+                // Form is valid, show the success message
+                alert("Your info has been submitted successfully, and our staff will contact you very soon.");
+                // reset the form fields after successful submission
+                this.reset();
+                } else {
+                // If there are still unfilled required fields, show an error message
+                alert("Please fill out all the required fields before submitting.");
+                }
+            });
+        });
+    </script>
+
+    </head>
+    <body>
+
+        <!--the main section-->
+        <section class="section">
+
+            <!-- The background image -->
+            <img class="section-bg-image" src="images/becomeAMemeber_image.jpg" alt="gym floor">
+
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html"><img class="logo" src="images/balancegym-logo.png" alt="Balance Gym Logo"></a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mb-2 me-5 mb-lg-0 gap-3">
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link active" aria-current="page" href="index.html">HOME</a>
+                        </li>
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link active" aria-current="page" href="aboutUs.html">ABOUT US</a>
+                        </li>
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link active" aria-current="page" href="meetOurTeam.html">MEET OUR TEAM</a>
+                        </li>
+
+                    </ul>
+                </div>
+                </div>
+            </nav>
+
+            <div class="main-container">
+                <!-- The class that holds the the mani title and small paragraph below it -->
+                <div class="header-container">
+                    <h1 class="display-2">Contact Us</h1>
+                    <p>Please fill out this form <br>and one of our staff will contact you !</p>
+                </div>
+                <form>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="w-100" for="first-name">First Name <input id="first-name" name="first-name" type="text" required /></label>
+                            </div>
+                            <div class="col-lg-6">
+                                <label class="w-100" for="last-name">Last Name <input id="last-name" name="last-name" type="text" required /></label>
+                            </div>
+                            <div class="col-12">
+                                <label class="w-100" for="email">Email <input id="email" name="email" type="email" class="w-100" /></label>
+                            </div>
+                            <div class="col-12">
+                                <label class="w-100" for="phone-number">Phone Number <input id="phone-number" name="phone-number" type="text" required /></label>
+                            </div>
+                            <div class="col-12">
+                                <label class="w-100" for="referrer">Branch of Interest
+                                    <select id="referrer" name="referrer">
+                                        <option value="">(select one)</option>
+                                        <option value="1">Balance First Settlement</option>
+                                        <option value="2">Balance Thawra</option>
+                                        <option value="3">Balance Nasr City</option>
+                                        <option value="4">Balance Sheraton</option>
+                                        <option value="5">Balance Fifth Settlement</option>
+                                    </select>
+                                    </label>
+                            </div>
+                            <div class="col-12">
+                                <label class="w-100" for="bio">Write a message
+                                    <textarea id="message" name="message" rows="3" cols="30" placeholder="Is there any upcoming plans to open a branch in..."></textarea>
+                                    </label>
+                            </div>
+                            <div class="col-12">
+                                <input class="btn btn-secondary" type="submit" value="Submit" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
+

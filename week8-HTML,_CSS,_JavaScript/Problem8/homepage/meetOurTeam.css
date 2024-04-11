@@ -1,0 +1,173 @@
+
+
+
+/* This styling will be applied only to phone screens in portrait mode */
+@media (orientation: portrait) {
+
+  
+
+    /* local nav bar styling */
+    .navbar {
+        font-size: 1rem;
+    }
+        
+    /* Local styling for navbar-toggler button */
+    .navbar-toggler {
+        margin-top: 10%;
+        margin-right: 8%;
+    }
+        
+    /* local styling for the nav bar tabs/elements */
+    .logo {
+        width: 40%;
+        margin-top: 1em;
+
+    }
+
+
+}
+
+/* This styling will be applied only to phone screens in landscape mode */
+@media (orientation: landscape) {
+
+    .logo {
+        width: 20%;
+        margin-left: 1em;
+        margin-top: 1em;
+    }
+
+    .navbar-toggler {
+        margin-top: 10%;
+        margin-right: 8%;
+    }
+}
+
+/* Styles for tablets landscape mode */
+@media screen and (min-width: 1023px) and (max-width: 1200px) {
+
+
+
+    .logo {
+        width: 50%;
+        margin-left: 1em;
+    }
+    .navbar {
+        font-size: 1.1rem;
+    }        
+}
+
+/* this will be applied only for computer screens and tablets that has a width over 1200px*/
+@media screen and (min-width: 1200px) {
+    
+    .logo {
+        width: 30%;
+        margin-left: 1em;
+    }
+
+    .navbar {
+        font-size: 1.1rem;
+    }
+}
+
+
+                                /* GLOBAL STYLING */
+
+
+
+/* primary color var, and secondary color var */
+:root {
+--primary-color: #fa9732;
+--secondary-color: #fed233; 
+
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #141414;
+    overflow-x: hidden;
+    margin: 0;
+    height: 100%;
+    color: #fff;
+}
+
+
+.section {
+    box-sizing: border-box;
+}
+
+/* global nav bar styling */
+.navbar {
+    background-color: transparent;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.navbar-brand {
+    flex: 1; /* Let the .navbar-brand element take as much space as needed within the flex container */
+}
+  
+.navbar-toggler{
+    flex: 0; /* Let the .navbar-toggler element take only the space it needs */
+}
+
+.nav-link:hover {
+    color: #fa9732 !important;
+}
+
+.logo {
+    margin-left: 1em;
+}
+
+
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    margin: 4em 0 5em 0;
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+}
+
+
+
+
+       /* GLOBAL */
+
+
+.founder-thumbnail {
+    width: 40vw;
+    min-width: 400px;
+    max-width: 600px;
+
+}
+
+.trainer-thumbnail {
+    width: 20vw;
+    min-width: 320px;
+    max-width: 550px;
+}
+
+.founder-info{
+
+    max-width: 800px;
+    text-align: center;
+
+}
+
+.trainer-info {
+    max-width: 800px;
+
+}
+
+/* Make the text bolder */
+strong {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.row{
+    margin-bottom: 4rem;
+}

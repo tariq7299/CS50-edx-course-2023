@@ -1,0 +1,837 @@
+
+
+
+/* This styling will be applied only to phone screens in portrait mode */
+@media (orientation: portrait) {
+
+    /* Offer message LOCAL*/
+
+.logoAndOffer #offer-logo {
+    width: 90%;
+}
+
+#boxTxt {
+    font-size: 1.6rem;
+}
+
+
+    /* SECTION 1 LOCAL portrait */
+
+.section-1 {
+margin-bottom: 7rem;
+}
+
+/* local stylimg of the part contains the logo and the hero sentence */
+.hero {
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 100%;
+color: #fff;
+font-family: 'Permanent Marker', cursive;
+position: relative;
+}
+
+/* The local hero sentence styling */
+.hero-content {
+font-size: 250%;
+position: absolute;
+top: 65%;
+}
+
+/* local styling for the logo */
+.logo {
+width: 70%;
+position: absolute;
+top: 5rem;
+left: 17%;
+}
+/* local nav bar styling */
+.navbar {
+font-size: 1rem;
+}
+
+/* Local styling for navbar-toggler button */
+.navbar-toggler {
+margin-top: 10%;
+margin-right: 8%;
+}
+
+/* local styling for the nav bar tabs/elements */
+.navbar-nav {
+margin-top: 9%;
+margin-right: 8%;
+}
+
+.join-now-button {
+--bs-btn-padding-y: 0.75rem;
+--bs-btn-padding-x: 1.9rem;
+--bs-btn-font-size: 1rem;
+position: absolute;
+top: 74%;
+}
+
+/* SECTION 2 LOCAL Portrait */
+
+.section-2 {
+box-sizing: border-box;
+margin-bottom: 7rem;
+}
+
+.nasrCity2 {
+margin-top: 4rem;
+}
+
+
+/* SECTION 3 LOCAL Portrait */
+
+.section-3 {
+margin-bottom: 7rem;
+}
+
+.WhatWeOffer-paragraph {
+text-align: center;
+}
+
+
+/* SECTION 4 LOCAL Portrait */
+
+.Section-4-row_1{
+    object-fit: fill;
+}
+
+.Section-4-row_1 .col-12{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: fill;
+}
+.GetInTouch-headline {
+    padding: 1rem;
+}
+
+.section-4 p {
+   padding: 0 2rem 0 5rem;
+}
+
+.MenLocation-col_1{
+    margin-bottom: 2rem;
+}
+
+
+/* SECTION 5 LOCAL Portrait */
+
+.Balance-logo-footer {
+    width: 30%;
+}
+.Hers-logo-footer {
+    width: 25%;
+}
+.Nutri-logo-footer {
+    width: 20%;
+}
+
+.section-5 p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60%;
+ }
+
+
+}
+
+/* This styling will be applied only to phone screens in landscape mode */
+@media (orientation: landscape) {
+
+    /* Offer message LOCAL*/
+
+#boxTxt {
+    font-size: 1.4rem;
+}
+
+.logoAndOffer #offer-logo {
+    width: 30%;
+}
+
+ /* SECTION 1 LOCAL LAndscape */
+
+
+.section-1 {
+margin-bottom: 7rem;
+}
+
+.hero {
+display: flex;
+flex-direction: column;
+height: 100vh;
+color: #fff;
+font-family: 'Permanent Marker', cursive;
+position: relative;
+}
+
+.logo {
+width: 38%;
+position: absolute;
+transform: translate(-50%, -50%);
+top: 14%;
+left: 50%;
+
+}
+
+.hero-content {
+font-size: 3rem;
+position: absolute;
+transform: translate(-50%, -50%);
+top: 52%;
+left: 50%;
+}
+
+.join-now-button {
+--bs-btn-padding-y: 0.75rem;
+--bs-btn-padding-x: 2rem;
+--bs-btn-font-size: 1rem;
+position: absolute;
+transform: translate(-50%, -50%);
+top: 70%;
+left: 50%;
+}
+
+
+ /* SECTION 2 LOCAL Landscape */
+
+.section-2 {
+margin-bottom: 7rem;
+}
+
+
+.section_2-writing {
+margin: auto;
+text-align: left;
+}
+
+
+.nasrCity2 {
+margin-top: 6rem;
+}
+
+
+/* SECTION 2 LOCAL Landscape */
+
+.section-3 {
+margin-bottom: 7rem;
+}
+
+
+/*SECTION 4 LOCAL*/
+
+.Section-4-row_1 .col-12{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: fill;
+    padding:  2rem 0;
+}
+.GetInTouch-headline {
+    padding: 1rem;
+}
+
+.Section-4-row_2 {
+    padding: 0 8rem;
+}
+
+/* SECTION 5 LOCAL Lanscape */
+
+.Balance-logo-footer {
+    width: 25%;
+}
+.Hers-logo-footer {
+    width: 20%;
+}
+.Nutri-logo-footer {
+    width: 18%;
+}
+
+.section-5 p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60%;
+ }
+
+}
+
+/* Styles for tablets landscape mode */
+@media screen and (min-width: 1023px) and (max-width: 1200px) {
+
+    /* Offer message LOCAL*/
+
+#boxTxt {
+    font-size: 1.6rem;
+}
+
+.logoAndOffer #offer-logo {
+    width: 130%;
+}
+
+
+/* SECTION 1 LOCAL*/
+
+
+.section-1 {
+margin-bottom: 7rem;
+
+}
+
+.logo {
+width: 36%;
+position: absolute;
+transform: translate(-50%, -50%);
+top: 15%;
+left: 20%;
+}
+
+.hero-content {
+font-size: 400%;
+position: absolute;
+top: 65%;
+}
+
+.navbar {
+background-color: transparent;
+width: 100%;
+font-size: 1.1rem;
+
+}
+.join-now-button {
+--bs-btn-padding-y: 1rem;
+--bs-btn-padding-x: 3rem;
+--bs-btn-font-size: 1.4rem;
+position: absolute;
+top: 78%;
+}
+
+
+/* SECTION 2 LOCAL*/
+
+.section_2-writing {
+text-align: left;
+}
+
+.nasrCity2 {
+margin-top: 9rem;
+}
+
+
+
+
+/*SECTION 4 LOCAL*/
+.Section-4-row_1{
+    height: 63vh;
+    object-fit: fill;
+    }
+
+.MenLocation-col_1 {
+    padding: 0 1rem;
+}
+
+.LadiesLocation-col_2 {
+    padding: 0 1rem;
+}
+
+/* SECTION 5 LOCAL */
+
+.Balance-logo-footer {
+    width: 20%;
+}
+.Hers-logo-footer {
+    width: 18%;
+}
+.Nutri-logo-footer {
+    width: 15%;
+}
+
+.section-5 p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70%;
+ }
+
+}
+
+/* this will be applied only for computer screens and tablets that has a width over 995px*/
+@media screen and (min-width: 1200px) {
+
+        /* Offer message LOCAL*/
+
+#boxTxt {
+    font-size: 1.6rem;
+}
+
+.logoAndOffer #offer-logo {
+    width: 90%;
+}
+
+
+/* SECTION 1 LOCAL 1200px*/
+
+.section-2 {
+margin-top: 4rem;
+
+}
+
+.logo {
+width: 30%;
+position: absolute;
+transform: translate(-50%, -50%);
+top: 15%;
+left: 20%;
+}
+
+.hero-content {
+font-size: 520%;
+position: absolute;
+top: 65%;
+}
+
+.navbar {
+background-color: transparent;
+width: 100%;
+font-size: 1.1rem;
+
+}
+.join-now-button {
+--bs-btn-padding-y: 1rem;
+--bs-btn-padding-x: 3rem;
+--bs-btn-font-size: 1.4rem;
+position: absolute;
+top: 78%;
+}
+
+
+/* SECTION 2 LOCAL 1200px */
+
+.section-2 {
+height: 100vh;
+width: 100vw;
+
+}
+.section_2-writing {
+text-align: left;
+}
+
+.nasrCity2 {
+margin-top: 9rem;
+}
+
+
+/* SECTION 3 LOCAL 1200px*/
+
+.section-3 {
+height: 100vh;
+width: 100vw;
+}
+
+
+/*SECTION 4 LOCAL 1200px  */
+
+.section-4{
+    height: 100%;
+    width: 100vw;
+}
+
+.Section-4-row_1{
+    height: 70vh;
+    object-fit: fill;
+    padding: 0rem 0rem 0rem 5rem;
+}
+.Section-4-row_1 .col-12{
+    
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    object-fit: fill;
+
+}
+
+.MenLocation-col_1 {
+    padding: 0 1rem;
+}
+
+.LadiesLocation-col_2 {
+    padding: 0 1rem;
+}
+
+
+/* SECTION 5 LOCAL */
+
+.Balance-logo-footer {
+    width: 10%;
+}
+.Hers-logo-footer {
+    width: 9%;
+}
+.Nutri-logo-footer {
+    width: 8%;
+}
+
+.section-5 p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70%;
+ }
+
+}
+
+
+
+
+                                /* GLOBAL STYLING */
+
+
+                    /* Offer Message GLOBAL */
+
+.logoAndOffer #offer-logo {
+    transition: transform 1s  0.2s ease;
+}
+
+/* Background of the offer message */   
+#boxBack {
+    /* FULLSCREEN + CENTERED */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+   
+    /* (A2) TRANSPARENT BACKGROUND + HIDDEN */
+    background: rgba(0, 0, 0, 0.5);
+    /* This will make the #boxBack div (message container) hidden/invisible untill line #boxBack.show { display: flex; } executes, and it will executes when the page is finished reloading  */
+    display: none;
+
+}
+
+/* DIALOG BOX */
+/* The div that contains the text and button */
+#boxWrap {
+  position: relative;
+  padding: 4rem 4rem 1.7rem 4rem;
+  background: #000;
+  margin: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* The <input> that holds the closing button of the offer message  */
+.close-button {
+  --bs-btn-padding-y: 0.2rem;
+  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-font-size: 1rem;
+  color: #fff;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  border-color: white;
+}
+
+/* The <div> that contains the offer text */
+#boxTxt {
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+}
+  
+
+/* the <a> that holds the grab offer button*/
+.GrabOffer-button{
+    --bs-btn-padding-y: 0.5rem;
+    --bs-btn-padding-x: 5rem;
+    --bs-btn-font-size: 1.4rem;
+    border-radius: 2rem;
+    margin-top: 3rem;
+    background-color: var(--secondary-color);
+}
+
+/* It will change the syling of the button when you hover on it*/
+.GrabOffer-button:hover {
+    background-color: black;
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+/* When the page finishes loading the message the function displayOffer() will be called  */
+/* And what it basicly do, that it just adds ".show" class to the parent container of the message #boxBack, which then make the following CSS selector active*/
+#boxBack.show {
+    display: flex; 
+}
+   
+
+/* primary color var, and secondary color var */
+:root {
+--primary-color: #fa9732;
+--secondary-color: #fed233; 
+
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #141414;
+    overflow-x: hidden;
+    height: 100%;
+
+
+}
+
+                    /* SECTION 1 GLOBAL */            
+
+/* SECTION 1 positioninig  */
+.section-1 {
+    position: relative;
+    height : 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+/* section 1 background image styling */
+.section1-bg-image {
+    height : 100vh;
+    width: 100vw;
+    object-fit: cover;
+    filter: brightness(0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+ 
+/* global nav bar styling */
+.navbar {
+    background-color: transparent;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* The global stylimg of the part contains the logo and the hero sentence */
+.hero {
+    /* display: flex; */
+    align-items: center;
+    /* height: 100%; */
+    color: #fff;
+    position: relative;
+}
+
+/* The global hero sentence styling */
+.hero-content {
+    font-family: 'Permanent Marker', cursive;
+}
+
+/*  the hover effect of the nav bar tabs*/
+ .nav-link:hover {
+    color: #fa9732 !important;
+}
+
+/*  especial hovering color applied to "HersGym" tab*/
+.hers-link:hover {
+    color: #fa6d8f!important;
+}
+
+
+/*  especial hovering color applied to "NutriNations" tab*/
+.nutriNations-link:hover {
+    color: #8cc27c !important;
+}
+
+/* A different color applied to the word "Best" */
+.highlighted-word-in-hero {
+    color: var(--secondary-color);
+}
+
+/* Global styling of the "JOIN TODAY" button */
+.join-now-button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Some hovering styling on the "JOIN TODAY" button */
+.join-now-button:hover {
+    background-color: black;
+    color: var(--secondary-color);
+}
+
+
+            /* SECTION 2 GLOBAL */
+
+.section-2 {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center; /* Horizontally center the child element */
+    align-items: center; /* Vertically center the child element */
+    width: 100vw;
+
+}
+
+
+.section_2-writing {
+    margin-bottom: 9rem;
+}
+
+.nasrCity1, .nasrCity2 {
+    height: 30rem;
+    width: 21rem;
+    object-fit: cover;
+}
+
+.about-us-headline {
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+    transform: scaleY(1.2);
+    margin-bottom: 1.5rem;
+}
+
+.balance-gym-word {
+    white-space: nowrap;
+  }
+  
+.about-us-paragraph {
+    color: #fff;
+}
+
+.learMoreLink {
+    margin-top: 3.7rem;;
+}
+
+
+            /* SECTION 3 GLOBAL*/
+
+.section-3 {
+    box-sizing: border-box;
+    width: 100vw;
+}
+
+.serviceImage-col_1 {
+    position: relative;
+    background-image: url("images/servicesImage_4.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 29rem;
+    width: 25rem;
+
+}
+
+.serviceImage-col_2 {
+    position: relative;
+    background-image: url("images/servicesImage_2.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 29rem;
+    width: 25rem;
+}
+
+.serviceImage-col_3 {
+    position: relative;
+    background-image: url("images/servicesImage_1.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 29rem;
+    width: 25rem;
+}
+
+.WhatWeOffer-headline {
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+    transform: scaleY(1.2);
+    margin-bottom: 1.5rem;
+}
+
+.WhatWeOffer-image-Writing{
+    
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+    transform: scaleY(1.2) translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: #cd8d8fcd;
+}
+.section-3_images {
+    padding-bottom: 8rem;
+}
+
+/* SECTION 4 GLOBAL*/
+
+.section-4 {
+    box-sizing: border-box;
+    width: 100vw;
+    
+}
+    
+
+.Section-4-row_1{
+    background-image: url("images/contactPageImage_4__.jpg");
+    background-repeat: no-repeat;
+    object-fit: cover;
+
+    
+
+}
+
+
+
+.GetInTouch-headline{
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+    transform: scaleY(1.2);
+    
+}
+
+
+.contactInfo-headline {
+font-family: 'Oswald', sans-serif;
+transform: scaleY(1.2);
+padding: 1rem 0rem 0.5rem 0rem;
+}
+
+.Section-4-row_1 .col-12{
+    padding: 0rem 0rem 0rem 5rem;
+
+}
+
+.Section-4-row_1 .col-12{
+    
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+}
+.Section-4-row_2 {
+    background-color: #f9ef23;
+}
+
+
+.section-4 p {
+    font-weight: bolder !important;
+    font-size: 90%;
+}
+
+.section-4 .indent {
+    margin-left: 1em;
+} 
+
+
+/* SECTION 5 GLOBAL*/
+
+.section-5 {
+    box-sizing: border-box;
+    width: 100vw;
+
+}
+.Balance-logo-footer, .Hers-logo-footer, .Nutri-logo-footer {
+    object-fit: contain;
+}
+
+.section-5 p {
+    font-family: 'Montserrat', sans-serif;
+}
+    
+     
+    
+    
+    

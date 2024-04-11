@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search for a Quote
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="user-info">
+        <!-- This is shared HTML template that I created to be shared in some pages. It will display the current cash and the grand total of the account. -->
+        {% include 'shared_user_info.html' %}
+    </div>
+
+    <div class="display-4 mx-auto mt-1 mb-4 main-header">Search for a quote</div>
+    <div class="mb-3 quote-symbol-input hover-effect py-2">
+        <input autocomplete="off" autofocus class=" mx-auto" id="quote" name="quote" placeholder="nflx/ ms/ na ...etc" type="text">
+    </div>
+
+    <div class="table-responsive py-5">
+        <table >
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Symbol</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="quote-search-results">
+            </tbody>
+        </table>
+    </div>
+    <script>
+
+        const input = document.querySelector('#quote');
+        input.addEventListener('input', function() {
+            // Delay the execution of the AJAX request by 700 milliseconds
+            // that delay to fix a very wierd issue, that because of how fast the async function() executes it sometimes doesn't display results correctly
+            setTimeout(async function() {
+                const response = await fetch('/search_quote?q=' + input.value);
+                const quote = await response.json();
+                let html = ''
+                if (quote === null) {
+                    html = '<tr><td>' + "N/A" + '</td><td>' + "N/A" + '</td><td>' + "N/A" + '</td><td>' + "N/A" + '</td></tr>';
+                } else {
+                    // " || "N/A"; " this because if the user left the seacrh field empty, instead outputing "undefined" becasue "quotes" is undefined, it will now assign any empty quotes.{key} to be "N/A"
+                    const name = quote.name || "N/A";
+                    const price = quote.price || "N/A";
+                    const symbol = quote.symbol || "N/A";
+                    let buyButton = "N/A";
+                    if (name !== "N/A" && price !== "N/A" && symbol !== "N/A") {
+                        buyButton = `<a href="/buy" class="btn btn-primary">buy</a>`;
+                    }
+                    html = `<tr><td>${name}</td><td>${price}</td><td>${symbol}</td><td>${buyButton}</td></tr>`;
+                }
+                document.querySelector('#quote-search-results').innerHTML = html;
+            }, 700);
+        });
+    </script>
+
+{% endblock %}

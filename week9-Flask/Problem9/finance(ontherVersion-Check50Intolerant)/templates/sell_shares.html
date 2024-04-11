@@ -1,0 +1,31 @@
+<div class="user-input-form">
+    <fieldset>
+        <label for="sharesInputFeild" >Enter Number of Shares:</label><input autocomplete="off" autofocus class="" id="sharesInputFeild" name="sharesInputFeild" placeholder="10/ 4/ 30/ ..etc" type="number"><button class="btn btn-primary" type="submit" name="submitShares" id="submitShares">Submit</button>
+    </fieldset>
+</div>
+<div id="checkout-info"></div>
+
+<script>
+    $(document).ready(function(){
+            // This will make an ajax GET request, and after validating the "shares" inputed by user, it will then display the payment info section (checkout.html).
+            $("#submitShares").click(function(){
+                var shares = $('#sharesInputFeild').val();
+                var quote = $('#quoteSymbolInputFeild').val();
+                $.ajax({
+                    url: '/checkout_selling',
+                    type: 'GET',
+                    data: {
+                        shares: shares,
+                        quote: quote
+                    },
+                    success: function(response) {
+                        $('#checkout-info').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+
+</script>

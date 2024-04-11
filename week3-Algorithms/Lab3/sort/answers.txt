@@ -1,0 +1,21 @@
+sort1 uses: BUBBLE sort algorithm
+
+How do you know?: The average real time of “sorted” file (omega (n)) is
+significantly lower than the average real time of "reversed" (Big O (n2))
+, however the rest of sort programs (sort2, sort3) all have same results in terms of the average real time of sorting
+, between Big O, Omega and Theta files.
+
+sort2 uses: MERGE sort algorithm
+
+How do you know?: It has the lowest average real time of sorting “reversed” file (Big O (n log n))
+, “sorted” (Omega (n log n)) and “random” (Theta (n log n)).
+
+sort3 uses: SELECTION sort algorithm
+
+How do you know?: Obviously because it is the last one
+, another reason it has Equal results between all average times, so it is either selection algorithm or Merge algorithm
+, and with it having the highest average real time (Big O (n2), Omega (n2), Theta (n2)), so it has to be selection.
+
+
+**Note**
+I call “real” time results, “Average time” because I have took a number of results of each time, and calculated there average.

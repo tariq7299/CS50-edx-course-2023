@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Avenir:wght@100..700&family=Playfair+Display:wght@600&family=Roboto+Slab:wght@100..600&family=Tajawal:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+
+   
+    <title> GoldGardyn </title>
+    
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+
+  </body>
+
+  
+</html>
+
+  <style>
+    :root {
+      --text: hsl(48, 77%, 5%);
+      --background: hsl(50, 80%, 94%);
+      --primary: hsl(50, 78%, 69%);
+      --secondary: hsl(50, 79%, 87%);
+      --accent: hsl(50, 79%, 47%);
+    }
+
+    /* To ensure that body takes the whole page/view port, as it wasn't taking the whole page !, (The source that <html> tag wasn't takimng the whole page and I do't know why)   */
+    html, body {
+      
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--background);
+    }
+    
+  </style>
+
+<!-- 
+
+  <ul>
+    <li>{{ dayDate }} - Total Amount: {{ totalAmount }}</li>
+</ul>
+<div class="center" v-for="expense in expenses" :key="expense.spending_id">
+    <p>Amount: {{ expense.amount_spent }} - Category: {{ expense.category }}</p>
+</div>
+
+ -->

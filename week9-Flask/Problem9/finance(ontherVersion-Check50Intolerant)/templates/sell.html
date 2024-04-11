@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell a quote
+{% endblock %}
+
+{% block main %}
+        <div class="user-info">
+            <!-- This is shared HTML template that I created to be shared in some pages. It will display the current cash and the grand total of the account. -->
+            {% include 'shared_user_info.html' %}
+        </div>
+        <h1 class="display-4 mx-auto mt-1 mb-5 main-header">Sell Shares</h1>
+        <div class="checkout hover-effect">
+            <div class="user-input-form">
+                <fieldset>
+                    <label class="" for="quoteSymbolInputFeild">Enter Stock Quote Symbol:</label><input autocomplete="off" autofocus class="" id="quoteSymbolInputFeild" name="quoteSymbolInputFeild" placeholder="nflx/ ms/ na ...etc" type="text"><button class="btn btn-primary" id="showSharesInputFeild">Lookup</button>
+                </fieldset>
+            </div>
+            <div id="shares-input-and-checkout-info"></div>
+        </div>
+
+    <script>
+
+        $(document).ready(function(){
+            // this will make an ajax request by pressing the "buy" button that will dipslay the shares input field and the "submit" button
+            $("#showSharesInputFeild").click(function(){
+                // store thr value of stock symbol inputed by user, that will be used with lookup() in the server side
+                var quote = $('#quoteSymbolInputFeild').val();
+                $.ajax({
+                    url: '/sell_shares',
+                    type: 'GET',
+                    data: {quote: quote},
+                    success: function(response) {
+                        // dipslay the shares input field and the "submit" shares button
+                        $('#shares-input-and-checkout-info').html(response);
+                    }
+                });
+            });
+
+        });
+
+    </script>
+{% endblock %}

@@ -1,0 +1,208 @@
+
+
+
+/* This styling will be applied only to phone screens in portrait mode */
+@media (orientation: portrait) {
+
+  
+
+    /* local nav bar styling */
+    .navbar {
+        font-size: 1rem;
+    }
+        
+    /* Local styling for navbar-toggler button */
+    .navbar-toggler {
+        margin-top: 10%;
+        margin-right: 8%;
+    }
+        
+    /* local styling for the nav bar tabs/elements */
+    .logo {
+        width: 40%;
+        margin-top: 1em;
+
+    }
+
+
+}
+
+/* This styling will be applied only to phone screens in landscape mode */
+@media (orientation: landscape) {
+
+    .logo {
+        width: 20%;
+        margin-left: 1em;
+        margin-top: 1em;
+    }
+
+    .navbar-toggler {
+        margin-top: 10%;
+        margin-right: 8%;
+    }
+}
+
+/* Styles for tablets landscape mode */
+@media screen and (min-width: 1023px) and (max-width: 1200px) {
+
+
+
+    .logo {
+        width: 50%;
+        margin-left: 1em;
+    }
+    .navbar {
+        font-size: 1.1rem;
+    }        
+}
+
+/* this will be applied only for computer screens and tablets that has a width over 1200px*/
+@media screen and (min-width: 1200px) {
+    
+    .logo {
+        width: 30%;
+        margin-left: 1em;
+    }
+
+    .navbar {
+        font-size: 1.1rem;
+    }
+}
+
+
+                                /* GLOBAL STYLING */
+
+
+
+/* primary color var, and secondary color var */
+:root {
+--primary-color: #fa9732;
+--secondary-color: #fed233; 
+
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #141414;
+    overflow-x: hidden;
+    margin: 0;
+    height: 100%;
+}
+
+
+.section {
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* section 1 background image styling */
+.section-bg-image {
+    height : 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    position: absolute;
+}
+
+/* global nav bar styling */
+.navbar {
+    background-color: transparent;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+
+}
+
+.navbar-brand {
+    flex: 1; /* Let the .navbar-brand element take as much space as needed within the flex container */
+}
+  
+.navbar-toggler{
+    flex: 0; /* Let the .navbar-toggler element take only the space it needs */
+}
+
+.nav-link:hover {
+    color: #fa9732 !important;
+}
+
+.logo {
+    margin-left: 1em;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.header-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    margin: 4em 0 5em 0;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+}
+
+h1, p {
+   
+    margin: 0.2em auto;
+    text-align: center;
+}
+
+
+form {
+    /* It has to be relative to move when the nav bar expand, because if it was absolute it will not work well when the nav bar expand */
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.5);    
+    width: 76vw;
+    max-width: 700px;
+    min-width: 300px;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+label {
+    margin: 0.5rem 0;
+}
+
+fieldset {
+    padding: 2rem 2rem;
+}
+    
+input,
+textarea,
+select {
+  margin: 0.4rem 0 0 0;
+  width: 100%;
+  min-height: 2.2em;
+}
+    
+
+input[type="submit"] {
+    display: block;
+    width: 60%;
+    margin: 2em auto;
+    height: 2em;
+    font-size: 1.1rem;
+    min-width: 250px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    color: var(--secondary-color);
+
+}
+
+
+/* Some hovering styling on the "JOIN TODAY" button */
+input[type="submit"]:hover {
+    background-color: var(--secondary-color);
+    color: #000;
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"> -->
+
+</head>
+<body>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script> -->
+
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="collapse navbar-collapse overflow-x-scroll" id="navbarNav">
+        <ul class="navbar-nav d-flex align-items-center mx-auto">
+          <li class="nav-item">
+            <a class="navbar-brand" href="http://127.0.0.1:8080/redo/radiotoday/index.html">
+              <img src="assets/radioshack-logo.png" alt="RadioShack Logo image" width="125" height="25">
+            </a>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="https://theme.zdassets.com/theme_assets/12550002/766c53270cfd9f0e9927791d938b3474421f9f0f.png" alt="Linen N things logo" width="125" height="25">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="https://www.wis.community/system/files/styles/fb/private/images/pier1logo.png?itok=bVx1vM_C" alt="pier1 logo" width="90" height="27">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="https://cdn.promocodes.com/img/merchants/15093/360-logo/v5/dressbarn-coupons.png" alt="Dress barn logo" width="100" height="30">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="https://th.bing.com/th/id/R.5321bdb63c48ce11e38d3cb217ae513b?rik=Utt2feEv9MS3zw&riu=http%3a%2f%2fstatic.musictoday.com%2fstore%2fbands%2f3831%2fimages%2fPromoBanners%2fFM_Logo_681x138_BlueLetters.png&ehk=KMC3XGLzuzoje%2fLMMva8qBpQVLLQ5HaKjzOrEx2K53Q%3d&risl=&pid=ImgRaw&r=0" alt="the franklin mint" width="170" height="50">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="https://th.bing.com/th/id/OIP.ZHjPts5Ah32sPYOvJOA05AHaCA?pid=ImgDet&rs=1" alt="stein mart" width="100" height="25">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="https://th.bing.com/th/id/R.c803ddbb62f8e931f21187672e842cd9?rik=0ciExVjBtrTY1A&riu=http%3a%2f%2fvertassets.blob.core.windows.net%2fimage%2f30fed6c0%2f30fed6c0-4f8c-40ad-a23b-cf2951c0539b%2fmodells_sporting_goods.jpg&ehk=xMzj2r1MD8ezyiJCPJcvs8TKmlRaXHANT7vkbInXrb0%3d&risl=&pid=ImgRaw&r=0" alt="Modells sporting goods" width="100" height="25">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">
+              <img src="https://th.bing.com/th/id/OIP.A47XxvzQ_GSd6-iFEwaOgQHaA5?pid=ImgDet&rs=1" alt="Mentor box" width="100" height="25">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="your_logo.png" width="30" height="30" alt="">
+    </a>
+    <a class="navbar-brand" href="#">Brand 1</a>
+    <a class="navbar-brand" href="#">Brand 2</a>
+    <a class="navbar-brand" href="#">Brand 3</a>
+  </nav> -->
+
+
+
+
+  <!--
+    Creates a navigation bar, "navbar" When you add the .navbar class to a nav element, it adds the default styling of Bootstrap such as a background color, padding, border, and font styles that are necessary to make the navbar look visually appealing and functional.
+    "navbar-expand-xl/lg/md/sm" This collapses the nav bar into hamburger menue, that can expand the navigation bar again when you press on it.
+    You can detirmine the breakpoint which turns the nav bar into the collapsed menue by using -xl/lg/md/sm
+    "bg-dark" Changes the background color of the nav bar
+  -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000">
+    <!--
+      This <div>/.container is the one that encapsulate/contain all of the elements of the nav bar
+      "container-fluid" This makes the div/container fills the entire width of the view port
+    -->
+    <!-- <div class="container"> -->
+      <!--
+        <a> is the link that is inside the logo word/image, that is located on the top most left of the screen
+        "navbar-brand" This defines/assignes the bootstrap default styling of a logo/link
+        <img> that is the logo image, "width" and "height" is dimensions of the logo, this is necassary beacause the logo image is so big
+        "navbar-toggler" This when assigned to <button> element, gives it the default of the menue button toggles css properties of bootstrap
+          ']
+      -->
+      <div class="d-flex">
+        <div class="flex-shrink-1">
+        <a class="navbar-brand " href="http://127.0.0.1:8080/redo/radiotoday/index.html"><img src="https://www.radioshack.com/cdn/shop/files/Shack_is_Back.svg?v=12237660510518491101" alt="RadioShack Logo image" width="250" height="50"></a>
+        <!--
+          <button> creats a button to toggle/untoggle the nav bar (only in zoomed state where there is no place to the nav bar OR in case of smaller screen)
+          "data-bs-toggle"
+            1- The "bs" was added recently to bootstrap in bootstrap 5, which just new way to distiguish custom made attributes of bootsrtap than custom made attributes made by you
+            2- Also it takes different valuse like, "collapse", "dropdown", "tab"......etc
+            3- And what it does do that it controls how the toggle button react when pressed
+          "data-bs-target" Determines which part will be collapsed and expanded (the nav bar), this "#id" is the id of an elemnt in code
+          "aria-controls" To provide additional info to screen readers and accessibilty
+            here is an example from GPT:
+
+              <button id="toggle-button" aria-controls="dropdown-menu">Toggle Dropdown</button>
+              <div id="dropdown-menu" aria-hidden="true">
+                <<< Dropdown menu content >>>
+              </div>
+              In this example, the toggle-button is the Control Element, and the dropdown-menu is the Controlled Element. The aria-controls attribute on the button establishes the association between them. When the button is activated, it can toggle the visibility of the dropdown menu, and assistive technologies can announce the presence and state of the dropdown menu to the user.
+              aria-expanded
+
+            "aria-expanded" This indecates whether the content is expanded or collapsed in default mode when you reload the page
+              keep in mind if you change this to "true" it wont expand in the default mode, beacasue as I said this is just an 'indication'that is usefull only for accessibilty and screen readers, (for example if some one blind is using the website and he used the screen reader to read the content it will tell him that the content is epanded)
+              Also when you expand the menue bar/nav bar the "aria-expanded" will automatically change to "true" !
+              Note: If you want to actualy change the default state of nav bar to be expanded when you first reload the page you have to add "show"
+              <div class="collapse navbar-collapse show" id="navbarNavAltMarkup">
+            "aria-label"
+              A name that is given to that button/toggle button that is useful for (again) screen readers and accissibilty and people with disabilities, that is ofcourse that is not visible on screen
+          -->
+          </div>
+          <div class="d-block">
+            <form  class="d-flex" role="search ">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"> -->
+        <!--
+          <span> is used to group inline elements together, does not have any inherent functionality
+          "navbar-toggler-icon" This is the actual icon, there is many types of the nav bar/menue icon, the most common is the 'hamburger' icon
+        -->
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <!--
+          "collapse" Is a class used in Bootstrap to create a collapsible element. It is part of the navbar component's functionality to provide a responsive and collapsible navigation menu. (if you remove it it wont have leave affect ??!?!)
+          "navbar-collapse" This to make the menue collapse and expande from the nav bar seamlessly, if you remove this class, it will still collapse and expand but very weirdly
+          "id=navbarNavAltMarkup" This is the value up there found in data-bs-target="#navbarNavAltMarkup", And its purpose to indicate which part the toggle menue button will have affect on
+        -->
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <!--
+          #@ The hairarchy of nav bar is like the that:
+            <nav>
+              <div class="container fluid">
+                <a class="navbar-brand"></a>
+                <button class="navbar-toggler">
+                  <span class="navbar-toggler-icon">
+                </button>
+                <div class="collapse navbar-collapse">
+                  <div class="navbar-nav">
+                    <a class="nav-link active"></a>
+                    <a class="nav-link"></a>
+                    <a class="nav....></a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          #@ "navbar-nav" The div/container which holds the final div that contains the menue elemnets !!
+              This class applies default bootstrap styling to the collapsible div of nav bar links
+        -->
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">ELECTRONICS</a>
+            <a class="nav-link" href="#">HOME&OFFICE</a>
+            <a class="nav-link">MOBILE ACCESSORIES</a>
+          </div>
+        </div>
+    <!-- </div> -->
+  </nav>
+
+
+  <!--
+    The upcoming part of code is all about the structure of columns and rows of the web site
+    "container" Is necessary for the grid layout of bootstrap, this is the parent div which holds all other divs (the container that holds every other div)
+    The hierarchy of Bootstrap’s grid goes from container to row to column to your content
+    "text-center" This makes every text in columns to be in center
+  -->
+  <div class="container text-center">
+    <!--
+      "row" to assign it as a row, and apply default bootsrtap styling to it
+      "align-items-center" that will put the row at the top of row, fixed to top
+    -->
+    <div class="row">
+      <div class="col">
+        <h1 class="bold-local-css">New arrivals</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1 class="bold-local-css">Shop By Categoty</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="assets/gaming.jpg" class="img-thumbnail">
+        Gaming
+      </div>
+      <div class="col">
+        <img src="assets/radioshackproducts.jpg" class="img-thumbnail">
+        RadioShack Products
+      </div>
+      <div class="col">
+        <img src="assets/toolsandkits.jpg" class="img-thumbnail">
+        Tools and Kits
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="assets/lighting.jpg" class="img-thumbnail">
+        lighting
+      </div>
+      <div class="col">
+        <img src="assets/Batteries.jpeg" class="img-thumbnail">
+        Batteries
+      </div>
+      <div class="col">
+        <img src="assets/Stereosandheadphones.jpeg" class="img-thumbnail">
+        Stereos & Headphones
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="assets/giftcard.jpeg" class="img-thumbnail">
+        Gift Cards
+      </div>
+      <div class="col">
+        <img src="assets/sale.jpeg" class="img-thumbnail">
+        One of three columns
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1 class="bold-local-css">RadioShack's Latest Trends</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="assets/PCbuild.jpeg" class="img-thumbnail">
+        How To Build A Gaming PC
+      </div>
+      <div class="col">
+        <img src="assets/cryptodosanddonts.jpeg" class="img-thumbnail">
+        Dos And Don'ts of Crypto Trading and Investing
+      </div>
+      <div class="col">
+        <img src="assets/bestcryptogear.jpeg" class="img-thumbnail">
+        Best Crypto Mining Gear And Hardware
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img src="assets/Cryptotrends.jpg" class="img-thumbnail">
+        Exciting Crypto Trends of 2022
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</body>
+</html>

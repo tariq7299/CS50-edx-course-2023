@@ -1,0 +1,20 @@
+
+<div class="user-profile hover-effect">
+    <a href="/profile">
+        <div class="profile-image">
+            <img src="/static/profilePhoto.png" alt="profile photo">
+        </div>
+        <p>{{ username }}</p>
+    </a>
+</div>
+<div class="account-cash-container hover-effect">
+    <div class="account-cash-box">
+        <h3>Cash Balance</h3>
+        <p>{{ usd(account_cash) }}</p>
+        <h3>Holdings Value Total</h3>
+        <p>{{ usd(total_holdings_value) }}</p>
+        <h3>Grand Total</h3>
+        <p>{{ usd(grand_total) }}</p>
+    </div>
+</div>
+

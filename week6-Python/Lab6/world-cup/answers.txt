@@ -1,0 +1,23 @@
+Times:
+
+10 simulations: 0m0.029s
+100 simulations: 0m0.029s
+1000 simulations: 0m0.034s
+10000 simulations: 0m0.123s
+100000 simulations: 0m0.786s
+1000000 simulations: 0m7.339s
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+- At N = 10, Spain was the winner However, after I start to increase N, Belgium would become the winner at each time !,
+ In addition that spain would be most of the time (any number of simulations above 10) in the fourth place.
+
+ - Portugal would come at the second at N = 10 and at N = 100, However,
+  After I increased the number of simulations byond 100, It would become on the Third place each time.
+
+- Colombia had 10% chance of winning at N = 10, However, after I increased N, it would not exceed a chance of 2%
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?: After 100000 simulations,
+ as after that number, my program start to take more compute time than 1 second !

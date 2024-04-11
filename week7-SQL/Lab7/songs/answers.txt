@@ -1,0 +1,12 @@
+-Answer of the first question
+
+Commands to know the average of each characteristic of the songs
+SELECT AVG(energy) AS avg_energy, AVG(valence) AS avg_valence, AVG(danceability) AS avg_danceability,
+       AVG(tempo) AS avg_tempo, AVG(speechiness) AS avg_speechiness
+FROM songs;
+
+The audio aura of the user is energetic and upheat and he loves to dance as the "avg_tempo" of his songs is very high and his avg_danceability is also relatively high
+
+-- Answer of the second question
+A better way to calculate the aura of the user is to incorperate other factors such as melody, harmony,
+ lyrics, instrumentation, and arrangement, among others, when analyzing the audio aura of a listener's top songs, also this aura calculation can differ drasticly upon other factors that are not calculated here like personal preferences and cultural background and context.

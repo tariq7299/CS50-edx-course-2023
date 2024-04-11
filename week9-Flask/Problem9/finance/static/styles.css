@@ -1,0 +1,233 @@
+@media (orientation: portrait) {
+
+            /* buy.html and sell.html (local)*/
+
+    .user-input-form label {
+        display: block;
+    }
+
+    .user-input-form input, .user-input-form select {
+        margin: 0.4rem 0 0.5rem 0;
+        width: 100%;
+    }
+
+                /* All .html pages (LOCAL)*/
+    /* This styling will be applied on all mobile devices in portrait mode  */
+
+    table {
+        /* It is conflicting with a file called _reboot.scss --- I don't what this file is ?? or where its location ??! or why its there ?! all i know that it appears only in the developer tools in browser */
+        border-collapse: separate !important;
+        border-spacing: 16px;
+    }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+
+                /* buy.html and sell.html (local)*/
+
+    .user-input-form label {
+        display: block;
+    }
+
+    .user-input-form input, .user-input-form select {
+        margin: 0.4rem 0 1rem 0;
+        width: 100%;
+    }
+                /* All .html pages (LOCAL)*/
+    /* This styling will be applied on all mobile devices in portrait mode  */
+
+    table {
+        border-collapse: separate;
+        border-spacing: 16px;
+    }
+
+}
+
+@media screen and (min-width: 1023px) and (max-width: 1200px) {
+
+            /* the shared html of cash_shared_div.html (local) */
+    .user-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+            /* buy.html and sell.html (local)*/
+    .user-input-form input, .user-input-form select{
+        margin: 0.5rem 1rem;
+        min-width: 250px;
+    }
+
+            /* checkout_selling and checkout_buying.html (local) */
+    .quote-symbol-word {
+        font-size: 10rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+            /* the shared html of cash_shared_div.html (local) */
+
+    /* This will make the profile picture and the account-cash appear at the sides of of the screen */
+    .user-info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+            /* buy.html and sell.html (local)*/
+    .user-input-form input, .user-input-form select{
+        margin: 0rem 0.25rem;
+        min-width: 250px;
+    }
+
+}
+
+                    /* GLOBAL STYLES */
+            /* nav bar (GLOBAL) */
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue, .user-info-logo .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red, .user-info-logo .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow, .user-info-logo .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green, .user-info-logo .green
+{
+    color: #2e944b;
+}
+
+            /* quote.html */
+
+.quote-symbol-input input{
+    width: 80%;
+    max-width: 500px;
+    min-height: 2.3em;
+    border: 1px solid hsl(0, 0%, 90%);;
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+}
+
+
+            /* the shared html of cash_shared_div.html */
+            /* This will style the div on the top of screen that displays cash in account */
+
+/*  It makes a space between the shared_cash html page, and the rest of the html pages main content */
+.user-info{
+    margin-bottom: 4rem;
+}
+
+/* This wil create the same effect as applying the max-width property to the img element seperatly */
+/* .profile-image{
+    max-width: 200px;
+} */
+
+/* This will make the image responsive, and becasue of max-width it will not exceed 200px */
+/* Actually this """ width: 100%; height: auto;""" is the same as img-fluid in bootstrap !*/
+.profile-image img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+}
+
+.account-cash-box{
+    padding: 1rem;
+}
+
+
+            /* buy.html and buy_shares.html */
+.checkout {
+    padding: 1rem;
+}
+
+/* This contains the input field with a label and a button */
+.user-input-form {
+    margin: 0 auto 1rem auto;
+    width: 60vw;
+    max-width: 700px;
+    min-width: 300px;
+}
+
+.user-input-form input, .user-input-form select {
+    min-height: 2.3em;
+    border: 1px solid hsl(0, 0%, 90%);;
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+}
+
+.checkout label {
+    /* By setting a fixed width to the <label> tags, this ensures that the text lenght in label tags never affect the width of the <label> tag, so it wont push other elements, in other words lenght of <label> won't change upon the lenght of its text, and it will stay the same width no matter the text lenght  */
+    width: 250px;
+    text-align: left;
+}
+
+.checkout button {
+    --bs-btn-padding-y: .25rem;
+    --bs-btn-padding-x: 0.25rem;
+    --bs-btn-font-size: 1rem;
+    width: 7rem;
+}
+
+#buy, #sell {
+    width: 10rem;
+}
+
+
+
+            /* index.html (GLOBAL)*/
+
+.greeting-user-text {
+    /* margin: 0 3rem; */
+    text-align: center;
+    /* padding: 1rem; */
+}
+
+
+            /* All .html pages */
+
+.main-header {
+    letter-spacing: 0.55rem;
+    padding: 10px 12px 0 12px;
+}
+
+table {
+    margin-bottom: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 10px;
+    background-color: #c7cbd1;
+     /* It is conflicting with a file called _reboot.scss --- I don't what this file is ?? or where its location ??! or why its there ?! all i know that it appears only in the developer tools in browser */
+    border-bottom: 1px solid #000; /* Add a border at the bottom of header cells */
+}
+
+td {
+    padding: 10px; /* Optional, add padding to cells for spacing */
+    height: 50px; /* Adjust the height as needed */
+}
+
+table tbody tr:nth-of-type(odd) {
+    background-color: rgb(179, 208, 255, 0.3)
+}
+
+.hover-effect:hover {
+    background-color: #f5f5f5;
+    transition: color 2s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+
+
+
+

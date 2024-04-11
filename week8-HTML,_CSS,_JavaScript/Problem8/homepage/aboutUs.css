@@ -1,0 +1,189 @@
+
+
+
+/* This styling will be applied only to phone screens in portrait mode */
+@media (orientation: portrait) {
+
+  
+
+    /* local nav bar styling */
+    .navbar {
+        font-size: 1rem;
+    }
+        
+    /* Local styling for navbar-toggler button */
+    .navbar-toggler {
+        margin-top: 10%;
+        margin-right: 8%;
+    }
+        
+    /* local styling for the nav bar tabs/elements */
+    .logo {
+        width: 40%;
+        margin-top: 1em;
+
+    }
+
+
+}
+
+/* This styling will be applied only to phone screens in landscape mode */
+@media (orientation: landscape) {
+
+    .logo {
+        width: 20%;
+        margin-left: 1em;
+        margin-top: 1em;
+    }
+
+    .navbar-toggler {
+        margin-top: 10%;
+        margin-right: 8%;
+    }
+}
+
+/* Styles for tablets landscape mode */
+@media screen and (min-width: 1023px) and (max-width: 1200px) {
+
+
+
+    .logo {
+        width: 50%;
+        margin-left: 1em;
+    }
+    .navbar {
+        font-size: 1.1rem;
+    }        
+}
+
+/* this will be applied only for computer screens and tablets that has a width over 1200px*/
+@media screen and (min-width: 1200px) {
+    
+    .logo {
+        width: 30%;
+        margin-left: 1em;
+    }
+
+    .navbar {
+        font-size: 1.1rem;
+    }
+}
+
+
+                                /* GLOBAL STYLING */
+
+
+
+/* primary color var, and secondary color var */
+:root {
+--primary-color: #fa9732;
+--secondary-color: #fed233; 
+
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #141414;
+    overflow-x: hidden;
+    margin: 0;
+    height: 100%;
+    color: #fff;
+}
+
+
+.section {
+    box-sizing: border-box;
+}
+
+/* global nav bar styling */
+.navbar {
+    background-color: transparent;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.navbar-brand {
+    flex: 1; /* Let the .navbar-brand element take as much space as needed within the flex container */
+}
+  
+.navbar-toggler{
+    flex: 0; /* Let the .navbar-toggler element take only the space it needs */
+}
+
+.nav-link:hover {
+    color: #fa9732 !important;
+}
+
+.logo {
+    margin-left: 1em;
+}
+
+/* The logo found at the Introduction paragraph */
+.paragraph-logo {
+    width: 20%;
+    min-width: 40px;
+    max-width: 230px;
+    margin: 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin: 0em 0 5em 0;
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+}
+
+.intro-paragraph{
+    max-width: 800px;
+    text-align: center;
+}
+
+.section-headline {
+    font-family: 'Oswald', sans-serif;
+    color: #f9ef23;
+    transform: scaleY(1.2);
+    margin-bottom: 2rem;
+}
+
+.branches-section p {
+    max-width: 600px;
+    text-align: center;
+}
+
+.branches-section .indent {
+    margin-left: 0.2em;
+} 
+
+
+/* Make the text bolder */
+strong {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.row{
+    margin-bottom: 4em;
+} 
+
+.benefits-section .benefit {
+    display: inline;
+    font-family: 'Montserrat', sans-serif;
+    text-align: start;
+    font-style: italic;
+    margin-bottom: 1em;
+
+}
+svg {
+    margin-right: 0.4em;
+}
+
+
+
+  
+  
+  
+  
+  

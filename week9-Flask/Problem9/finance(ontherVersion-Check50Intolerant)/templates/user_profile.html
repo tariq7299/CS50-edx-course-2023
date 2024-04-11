@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+
+    <div class="row mb-5">
+        <div class="col user-info justify-content-center ">
+                <!-- This is shared HTML template that I created to be shared in some pages. It will display the current cash and the grand total of the account. -->
+                {% include 'shared_user_info.html' %}
+        </div>
+    </div>
+
+    <div class="row ">
+
+        <div class="col col-lg-6 my-2 my-lg-0 hover-effect p-2">
+            <h3>Change Your Passowrd</h3>
+            <form action="/profile" method="post">
+                <div class="user-input-form">
+                    <fieldset>
+                        <input  class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+                    </fieldset>
+                </div>
+                <div class="user-input-form">
+                    <fieldset>
+                        <input  class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Confirm Password" type="password">
+                    </fieldset>
+                </div>
+                <button class="btn btn-primary" type="submit">Change Password</button>
+            </form>
+        </div>
+
+        <div class="col col-lg-6 my-2 my-lg-0 hover-effect p-2">
+            <h3>Add Cash To your Account</h3>
+            <form action="/profile" method="post">
+                <div class="user-input-form">
+                    <fieldset>
+                        <input  class="form-control mx-auto w-auto" id="cash_amount" name="cash_amount" placeholder="1000/ 10/ 50.5/ ...etc" type="number">
+                    </fieldset>
+                </div>
+                <button class="btn btn-primary" type="submit">Add</button>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}

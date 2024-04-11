@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy a quote
+{% endblock %}
+
+{% block main %}
+
+    <div class="user-info">
+        <!-- This is shared HTML template that I created to be shared in some pages. It will display the current cash and the grand total of the account. -->
+        {% include 'shared_user_info.html' %}
+    </div>
+    <h1 class="display-4 mx-auto mt-1 mb-5 main-header">Procure Shares</h1>
+    <div class="checkout hover-effect">
+        <form action="/buy" method="post">
+            <div class="user-input-form">
+                <fieldset>
+                    <label class="" for="symbol">Enter Stock Quote Symbol:</label><input autocomplete="off" autofocus class="" id="symbol" name="symbol" placeholder="nflx/ ms/ na ...etc" type="text">
+                </fieldset>
+            </div>
+            <div class="user-input-form">
+                <fieldset>
+                    <label for="shares" >Enter Number of Shares:</label><input autocomplete="off" autofocus class="" id="shares" name="shares" placeholder="10/ 4/ 30/ ..etc" type="number">
+                </fieldset>
+            </div>
+            <button class="btn btn-primary" type="submit" name="buy" id="buy">BUY</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+

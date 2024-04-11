@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Linking my bootstrap's CSS resources ! -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-grid.css">
+        <link rel="stylesheet" href="css/bootstrap-grid.css.map">
+        <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="css/bootstrap-grid.rtl.css">
+        <link rel="stylesheet" href="css/bootstrap-grid.rtl.css.map">
+        <link rel="stylesheet" href="css/bootstrap-grid.rtl.min.css">
+
+
+
+        <!-- Liking a custom made CSS resource -->
+        <link href="styles.css" rel="stylesheet">
+
+        <!-- Linking a google font -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+         <!-- Linking bootstrap's javascript resources -->
+         <script src="js/bootstrap.js"></script>
+         <script src="js/bootstrap.min.js"></script>
+         <script src="js/bootstrap.bundle.min.js"></script>
+
+        <!-- Linking jQuery library (using the local file method) this the uncompressed version of jQuery -->
+         <script src="jQuery_local/jquery-3.7.0.js"></script>
+
+         <!-- Linking jQuery library (using the browser URL method) -->
+         <!-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script> -->
+
+         <!-- Linking jQuery library (using Google CDN method) -->
+         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
+
+         <!-- Linking jQuery library (using Microsoft CDN method) -->
+         <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.0.min.js"></script> -->
+
+
+         <!-- Linking jQuery library (using CDNJS method) -->
+         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
+
+        <title>Trivia!</title>
+
+
+
+
+        <!-- This will check whether the answer submitted is correct or not -->
+        <script>
+
+
+            // TODO: Add code to check answers to questions
+
+            document.addEventListener("DOMContentLoaded", function() {
+
+                function displayCorrectOrIncorrectAnswer(aButton, message) {
+                    var parent_col_OfButton = $(aButton).closest(".col");
+                    var messageElement = $('<div><p class="d-flex justify-content-center"></p></div>');
+                    var pElement = messageElement.find("p");
+                    pElement.text(message);
+                    parent_col_OfButton.append(messageElement);
+                    setTimeout(function() {
+                        messageElement.remove()
+                                        }, 1500);
+                };
+
+                function changeButtonColorToGreen(aButton) {
+                    aButton.classList.remove("btn-primary");
+                    aButton.classList.add("btn-success");
+                     // This is makes the transtition of button colors temorarily, so it will become blue again after a couple of seconds
+                    setTimeout(function() {
+                        aButton.classList.remove("btn-success", "btn-danger");
+                        aButton.classList.add("btn-primary");
+                    }, 1500)
+                }
+                function changeButtonColorToRed(aButton) {
+                    aButton.classList.remove("btn-primary");
+                    aButton.classList.add("btn-danger");
+                    // This is makes the transtition of button colors temorarily, so it will become blue again after a couple of seconds
+                    setTimeout(function() {
+                        aButton.classList.remove("btn-success", "btn-danger");
+                        aButton.classList.add("btn-primary");
+                    }, 1500)
+                }
+
+
+                                      // Checking answerins of part 1 : Multiple Choice \\
+
+
+                // Creating "questionsAndAnswers" as a map object which contain every question number in the first part of "Multiple Choice" and its key
+                const questionsAndAnswers_map_choose = new Map();
+                questionsAndAnswers_map_choose.set("Q1-choose", "Nile")
+                                        .set("Q2-choose", "Giza")
+                                        .set("Q3-choose", "Farouk")
+                                        .set("Q4-choose", "1956")
+                                        .set("Q5-choose", "Anwar Sadat");
+
+                // Creating "questionsAndAnswers" as a map object which contain every question number in the second part of "Free Choice" and its key
+                const questionsAndAnswers_map_free = new Map();
+                questionsAndAnswers_map_free.set("Q1-free", "mediterranean sea")
+                                            .set("Q2-free", "pope")
+                                            .set("Q3-free", "hieroglypics");
+
+
+                // Here i called stored every button tag found in my HTML code in "buttons"
+                var buttons = $('button');
+
+                // Iterate over the selected buttons
+                $.each(buttons, function(index, element) {
+
+                    var selectedButton = element;
+
+
+                                    //  This is the first method if you want to use forEach() found in jQuery and not $.each() in plain javascript \\
+
+
+                    // This is an event handler which listens if an event happens, and the event here if a user clicked on a button
+                    // $(selectedButton).click( function() {
+
+                    //     questionsAndAnswers.forEach(function(value, key) {
+
+                    //         var questionNumber = key
+                    //         var correctAnswer = value
+
+                        // ....
+                        // ...
+
+
+                                        //  This the second method if you want to use $.each() found in jQuery and not forEach() in plain javascript \\
+
+
+                    $(selectedButton).click( function() {
+
+                        // partOfQuestions variable contain the closest parent with a class named .section which is actually the parent <div> that holds each part of questions
+                        // And in order to achieve that  I have added an additional attribute of "id" to each .section element
+                        // part 1 "Multiple choice" id is "choose" and part 2 "Multiple choice" id is "free-response"
+                        var partOfQuestions = $(selectedButton).closest(".section").attr("id")
+
+                        // The following if statement check wgich part the user is answering, by comparing the parent .section element of the button the user clicked to each .section #id of the "mmultiple choice" part and the #id of "free response" part
+                        if (partOfQuestions === "choose") {
+
+                                                // Checking answers of part 1 : Multiple Choice \\
+
+                            // I used trim() on the button label as there is a lot of unecessary spaces between <button> tags, and I dont want to remove it from my HTML code, as it make my HTML more readable !
+                            var chosenAnswer = $(selectedButton).text().trim();
+
+                            // Here I tryied to select buttons by its ID, as I assigned the first question buttons with the same ID, and I wanted to see if the button selected by user was one of them, and it worked perfectly but, I read a tip on internet that it is not the best practice to use multible elements with the same ID
+                                                    // var answeredQuestionNo = $(selectedButton).attr('id');
+
+                            // Hers i used he button classes instead of button IDs, in order to distinguish between every goup of buttons, and I assigned the first word of every class with the appropriate button group, and i made it the first word to make it easy when i want to select it
+                            var answeredQuestionNo = $(selectedButton).attr('class').split(' ')[0];
+
+                            // Here the following iterates over  every key value pair found in "questionsAndAnswers_map_choose" map() object, to which button/answer the user clicked/choose, belongs to which question
+                            // Then it compares the answer of the user to the actual correct answer
+
+                            // Here i converted the questionsAndAnswers "map" to and array, because $.each doesnot work on maps
+                            const questionsAndAnswers_array_choose = Array.from(questionsAndAnswers_map_choose);
+                            console.log("questionsAndAnswers_array_choose : ", $(questionsAndAnswers_array_choose))
+
+                            $.each(questionsAndAnswers_array_choose,function(index, element) {
+
+                                // notice that Array.from() doesn't convert to normal arraies but instead it converts them to arraies of other arries, and each array contain the key as the first index and value the second index,
+                                // So this explains the element[0] and element[1], becasue element is actually the first small/child array found in the parent array questionsAndAnswers_array_choose, then if i want to access the key previously found in questionsAndAnswers_map_choose before i convert it to an array, i have to do this elemenr[0], and same thing applies on the  "value" of each key --> element[1].
+
+                                var questionNumber = element[0]
+                                var correctAnswer = element[1]
+
+
+                                // Here it compares the question number the loop stops on (from questionsAndAnswers) to the question the user is actually answering
+                                if (questionNumber === answeredQuestionNo) {
+                                    // Here it compares the actuall correct answer with user answe
+                                    if (chosenAnswer === correctAnswer) {
+                                        // if it was the correct answer, the button will turn green
+                                        changeButtonColorToGreen(selectedButton)
+                                        displayCorrectOrIncorrectAnswer (selectedButton, "Correct!");
+                                    }
+                                    else
+                                    {
+                                        // however, if the answer was incorrect the button will turn red
+                                        changeButtonColorToRed(selectedButton)
+                                        displayCorrectOrIncorrectAnswer (selectedButton, "Incorrect");
+                                    }
+                                }
+                            });
+                        }
+                        // This is in case if the user answered the one of the free rresponse questions
+                        else if (partOfQuestions === "free-response")
+                        {
+
+                                                // Checking answers of part 2 : Free Response \\
+
+                            // Here i called stored every input tag found in my HTML code and stored it in "inputFields"
+                            var inputFields = $('input');
+
+                            // Iterate over the each input element found in inputFields
+                            $.each(inputFields, function(index, element) {
+
+                                // inputField Contain one input element that is inside of inputFields
+                                var inputField = element;
+
+                                // checkAnswerButton stores the class "Q1-free" or "Q2-free or "Q3-free" that i have given to each button in the page, which enable us to ditigush it and know which iput belongs to that very button that has just been clicked
+                                var checkAnswerButton = $(selectedButton).attr('class').split(' ')[0];
+
+
+                                var answeredQuestionNo = $(inputField).attr('class').split(' ')[0];
+
+                                if (checkAnswerButton === answeredQuestionNo) {
+
+                                    // .val() gets the written answer of the user which has been just typed inside one of the input fields
+                                    // .trim() removes all the unnecessary spaces found in the beggininng and the end of the user answer
+                                    // .toLowerCase() converts the user answer to all lowercase letters to prevent more user errors, and make the checking for answerins process more efficient and practical, as I stored the questions answers as lower case letters
+                                    var writtenAnswer = $(inputField).val().trim().toLowerCase();
+
+                                            // Here the following iterates over  every key value pair found in "questionsAndAnswers_map_free" map() object, to which button/answer the user write, belongs to which question
+                                            // Then it compares the answer of the user to the actual correct answer
+
+                                            // Here i converted the questionsAndAnswers_map_free "map" to and array, because $.each doesnot work on map objects
+                                            const questionsAndAnswers_array_free = Array.from(questionsAndAnswers_map_free);
+
+                                            $.each(questionsAndAnswers_array_free,function(index, element) {
+
+
+                                                var questionNumber = element[0]
+                                                var correctAnswer = element[1]
+
+                                                // Here it compares the question number the loop stops on (from questionsAndAnswers) to the question the user is actually answering
+                                                if (questionNumber === answeredQuestionNo) {
+                                                    // Here it compares the actuall correct answer with user answe
+                                                    if (writtenAnswer === correctAnswer) {
+                                                        // if it was the correct answer, the button will turn green
+                                                        changeButtonColorToGreen(selectedButton)
+                                                        displayCorrectOrIncorrectAnswer (selectedButton, "Correct!");
+
+                                                    }
+                                                    else
+                                                    {
+                                                        // however, if the answer was incorrect the button will turn red
+                                                        changeButtonColorToRed(selectedButton)
+                                                        displayCorrectOrIncorrectAnswer (selectedButton, "Incorrect");
+                                                    }
+
+                                                }
+                                            });
+                                }
+
+                            });
+                        }
+
+                    });
+
+                });
+
+
+            });
+        </script>
+    </head>
+    <body>
+
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section" id="choose">
+
+                <!-- .row which holds the first part of "Multiple Choice"  -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2>Part 1: Multiple Choice </h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- TODO: Add multiple choice question here -->
+
+                <!-- The .row which  holds all of the questions-->
+                <div class="row p-sm-5 gap-5">
+
+                    <!-- A .col which holds question number 1  -->
+                    <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>1- Which famous river flows through Egypt ?</h3>
+                            </div>
+                            <div class="row mx-1">
+
+                                <div class="col col-xl-3 col-md-6 mb-3" id="Q1-b1">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q1-choose btn btn-primary " style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q1" >
+                                            Amazon
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class=" col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q1-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem; " id="Q1" >
+                                            Thames
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q1-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q1">
+                                            Nile
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q1-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q1">
+                                            Indus
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                         </div>
+                    </div>
+
+                    <!-- A .col which holds question number 2  -->
+                    <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>2- Which city is famous for pyramids?</h3>
+                            </div>
+                            <div class="row mx-1">
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q2-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q2">
+                                            Cairo
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q2-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q2">
+                                            Alexandria
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q2-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q2">
+                                            Giza
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q2-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q2">
+                                            Tripoli
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+
+                     <!-- A .col which holds question number 3  -->
+                    <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>3- Who was the King of Egypt when monarchy was overthrown in 1952?</h3>
+                            </div>
+                            <div class="row mx-1">
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q3-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q3">
+                                            Farouk
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q3-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q3">
+                                            Idris
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q3-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q3">
+                                            Zaheer Shah
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q3-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q3">
+                                            Shah Alam
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- A .col which holds question number 4  -->
+                    <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>4- When was Suez Canal nationalised?</h3>
+                            </div>
+                            <div class="row mx-1">
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q4-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q4">
+                                            1948
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q4-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q4">
+                                            1956
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q4-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q4">
+                                            1967
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q4-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q4">
+                                            1970
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                         </div>
+                    </div>
+
+                     <!-- A .col which holds question number 5  -->
+                    <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>5- Who succeeded Gamal Abdel Nasser as President of Egypt?</h3>
+                            </div>
+                            <div class="row mx-1">
+
+                                <div class="col col-xl-3 col-md-6 mb-3">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q5-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q5">
+                                            Anwar Sadat
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q5-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q5">
+                                            Ayub Khan
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q5-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q5">
+                                            Hafeez Assad
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="col col-xl-3 col-md-6 mb-3 ">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="Q5-choose btn btn-primary" style="--bs-btn-padding-y: .75rem; --bs-btn-padding-x: 1rem; --bs-btn-font-size: 1.25rem; width: 12rem;" id="Q5">
+                                            Yahya Khan
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                         </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- The section which holds the "Free Response" part -->
+            <div class="section" id="free-response">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                    <div class="row p-sm-5 gap-5">
+
+                    <!-- A .col which holds question number 1  -->
+                    <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>1- Which sea is to the north of Egypt?</h3>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col ">
+
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="Q1-free form-control" placeholder="Write your answer" aria-label="Write your answer" aria-describedby="button-addon2">
+                                        <button class="Q1-free btn btn-primary" type="button" id="button-addon1" style="width: 6rem; padding: rem; font-size: .8rem;" >Check answer</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!-- A .col which holds question number 2  -->
+                    <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>2- What is the designation of the Head of the Coptic Orthodox Church?</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col ">
+                                    <div class="input-group mb-3">
+                                            <input type="text" class="Q2-free form-control" placeholder="Write your answer" aria-label="Write your answer" aria-describedby="button-addon2">
+                                            <button class="Q2-free btn btn-primary" type="button" id="button-addon2" style="width: 6rem; padding: rem; font-size: .8rem;" >Check answer</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                         </div>
+
+                     <!-- A .col which holds question number 3  -->
+                     <div class="col-12 p-3 border">
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <h3>3-  How is ancient Egyptian writing known?</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col ">
+                                    <div class="input-group mb-3">
+                                            <input type="text" class="Q3-free form-control" placeholder="Write your answer" aria-label="Write your answer" aria-describedby="button-addon2">
+                                            <button class="Q2-free btn btn-primary" type="button" id="button-addon3" style="width: 6rem; padding: rem; font-size: .8rem;" >Check answer</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                         </div>
+
+                    </div>
+
+            </div>
+        </div>
+    </body>
+</html>

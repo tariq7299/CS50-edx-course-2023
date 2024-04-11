@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    HOME
+{% endblock %}
+
+{% block main %}
+
+<!-- this row holds the greeting user div -->
+<div class="row px-lg-5">
+    
+    <div class="col-12 greeting-user mb-5 d-flex justify-content-center">
+        <div class="display-3 greeting-user-text hover-effect">Welcome! {{ username }}<br>to
+            <!-- I have applied the same coloring technique here as the coloring in nav-brand -->
+            <span class="user-info-logo">
+            <span class="blue">C</span><span class="red">$</span><span class="yellow">5</span><span class="green">0</span> <span class="red">Finance</span>
+
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="user-info">
+        <!-- This is shared HTML template that I created to be shared in some pages. It will display the current cash and the grand total of the account. -->
+        {% include 'shared_user_info.html' %}
+</div>
+
+
+<!-- This holds the tabel and its header -->
+<div class="row">
+    <div class="col-12">
+        <div class="display-4 mx-auto mt-1 mb-5 main-header">Stocks Owned</div>
+        <!-- If usere own any stocks it will be dispolayed, if not, then a "No stocks found." will appear -->
+        {% if user_stocks %}
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Stock Quote Symbol</th>
+                            <th>Current Price</th>
+                            <th>Shares</th>
+                            <th>Holding Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--  -->
+                    {% for user_stock in user_stocks %}
+                        <tr>
+                            <td>{{ user_stock.RowNumber }}</td>
+                            <td>{{ user_stock.stock_symbol }}</td>
+                            <!--  lookup() will display the current price for each stock, and usd() will apply the currency formating  -->
+                            <td>{{ usd(lookup(user_stock.stock_symbol)['price']) }}</td>
+                            <td>{{ user_stock.shares }}</td>
+                            <!-- This will calculate the holding value for each stock user owns -->
+                            <td>{{ usd(lookup(user_stock.stock_symbol)['price'] *  user_stock.shares) }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Quote Symbol</th>
+                            <th>Current Price</th>
+                            <th>Shares</th>
+                            <th>Holding Value</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <h4 class="m-5">No stocks found !</h4>
+    </div>
+        {% endif %}
+</div>
+{% endblock %}

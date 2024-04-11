@@ -1,0 +1,55 @@
+{% if user_transactions %}
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Transaction ID</th>
+                    <th>Date</th>
+                    <th>Stock Quote Symbol</th>
+                    <th>Price Per Share</th>
+                    <th>Shares</th>
+                    <th>Holding Value</th>
+                    <th>Trading Fees</th>
+                    <th>Total Amount</th>
+                    <th>Transaction Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--  -->
+            {% for user_transaction in user_transactions %}
+                <tr>
+                    <td>{{ user_transaction.RowNumber }}</td>
+                    <td>{{ user_transaction.transaction_id }}</td>
+                    <td>{{ user_transaction.transaction_date }}</td>
+                    <td>{{ user_transaction.quote_symbol }}</td>
+                    <td>{{ usd(user_transaction.price_per_share) }}</td>
+                    <td>{{ user_transaction.shares }}</td>
+                    <td>{{ usd(user_transaction.holding_value) }}</td>
+                    <td>{{ usd(user_transaction.trading_fees) }}</td>
+                    <td>{{ usd(user_transaction.total_amount) }}</td>
+                    <td>{{ user_transaction.transaction_type }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Transaction ID</th>
+                    <th>Date</th>
+                    <th>Stock Quote Symbol</th>
+                    <th>Price Per Share</th>
+                    <th>Shares</th>
+                    <th>Holding Value</th>
+                    <th>Trading Fees</th>
+                    <th>Total Amount</th>
+                    <th>Transaction Type</th>
+                </tr>
+            </thead>
+        </table>
+        <h4>No transactions found.</h4>
+    </div>
+{% endif %}

@@ -1,0 +1,9 @@
+Package            Version
+------------------ -------
+Flask              2.3.3
+Flask-Cors         4.0.0
+Flask-SQLAlchemy   3.0.5
+SQLAlchemy         2.0.20
+requests           2.31.0
+Flask-Session      0.5.0
+python-dotenv      1.0.0

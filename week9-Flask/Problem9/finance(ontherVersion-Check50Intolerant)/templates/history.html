@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transactions History
+{% endblock %}
+
+{% block main %}
+        <div class="user-info">
+            <!-- This is shared HTML template that I created to be shared in some pages. It will display the current cash and the grand total of the account. -->
+            {% include 'shared_user_info.html' %}
+        </div>
+
+        <div class="display-4 mx-auto mt-1 mb-5 main-header">Transactions History</div>
+        <div id="transactions-history" class="transactions-history ">
+            <!-- user_transactions is a list (rows) of all the user's transactions extracted from database-->
+            <!-- if it is empty a message will be displayed instead-->
+            {% if user_transactions %}
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Transaction ID</th>
+                            <th>Date</th>
+                            <th>Stock Quote Symbol</th>
+                            <th>Price Per Share</th>
+                            <th>Shares</th>
+                            <th>Holding Value</th>
+                            <th>Trading Fees</th>
+                            <th>Total Amount</th>
+                            <th>Transaction Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--  -->
+                    {% for user_transaction in user_transactions %}
+                        <tr>
+                            <td>{{ user_transaction.RowNumber }}</td>
+                            <td>{{ user_transaction.transaction_id }}</td>
+                            <td>{{ user_transaction.transaction_date }}</td>
+                            <td>{{ user_transaction.quote_symbol }}</td>
+                            <td>{{ usd(user_transaction.price_per_share) }}</td>
+                            <td>{{ user_transaction.shares }}</td>
+                            <td>{{ usd(user_transaction.holding_value) }}</td>
+                            <td>{{ usd(user_transaction.trading_fees) }}</td>
+                            <td>{{ usd(user_transaction.total_amount) }}</td>
+                            <td>{{ user_transaction.transaction_type }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+                <div>
+                    <button class="btn btn-primary" type="submit" name="show-all-history" id="show-all-history">Show All transactions</button>
+                </div>
+            {% else %}
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Transaction ID</th>
+                                <th>Date</th>
+                                <th>Stock Quote Symbol</th>
+                                <th>Price Per Share</th>
+                                <th>Shares</th>
+                                <th>Holding Value</th>
+                                <th>Trading Fees</th>
+                                <th>Total Amount</th>
+                                <th>Transaction Type</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <h4 class="m-5">No transactions found !</h4>
+            {% endif %}
+        </div>
+
+    <script>
+    $(document).ready(function(){
+            // After pressing on show all transactions all the content of #transactions-history will be replaced with the response from the ajax GET request from the JS code !
+            $("#show-all-history").click(function(){
+                $.ajax({
+                    url: '/show_all_history',
+                    type: 'GET',
+                    success: function(response) {
+                        $('#transactions-history').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

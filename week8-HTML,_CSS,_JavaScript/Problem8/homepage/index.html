@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <!-- Add this inside the <head> tag -->
+    <!-- <link rel="stylesheet" href="node_mod  ules/bootstrap/dist/css/bootstrap.min.css"> -->
+
+
+
+        <title>BALANCE GYM</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&amp;display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap" rel="stylesheet">
+
+        <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+        <script>
+
+            // This is the functions definition, that will display a offer message (dialog box), when the user load page or reload
+            function displayOffer (msg) {
+                    //  If "msg" contains a value, then add "msg" to the innerHTML of #boxTxt, and also add .show class to #boxBack div
+                    // However, IF "msg" var is undefined (contains nothing), then remove ".show" class from #boxBack div
+                    // If you want to understand this more refere to its HTML section and CSS section
+                    if (msg != undefined) {
+                        document.getElementById("boxTxt").innerHTML = msg;
+                        document.getElementById("boxBack").classList.add("show");
+                    } else {
+                        document.getElementById("boxBack").classList.remove("show");
+                    }
+                };
+
+                // This function will animate the balance logo in the offer message
+                function animateLogo() {
+
+                    // This gets the HTML <img> that is the logo image
+                    var offerMessageLogo = document.getElementById('offer-logo');
+
+                    // This sets the current width of the user screen
+                    var currentScreenWidth = window.innerWidth;
+
+                    // Those will be checked later, to apply different animations on each screen width
+
+                    var portraitMediaQuery = window.matchMedia("(orientation: portrait)");
+                    var landscapeMediaQuery = window.matchMedia("(orientation: landscape)");
+                    var computersMinWidth = 1200;
+                    var tabletsMinWidth = 1023;
+                    var tabletsMaxWidth = 1200;
+
+
+
+                    // Apply a transformation to the element, triggering the animation
+
+                    // This will be applied on phones in portrait mode only
+                    if (portraitMediaQuery.matches)
+                    {
+                        // First animation
+                        // This will add a "transform" property, with the values translate() and scale() to #offer-logo selector in CSS code
+                        // And becasue of "transition: transform 1s  0.2s ease;" exist in #offer-logo selector located in the CSS code, this will be animated
+                        // This will make the logo move and also become bigger
+                        offerMessageLogo.style.transform = 'translate(10%, 10%) scale(3)';
+
+
+                        // After a delay, reset the transformation to the initial state to create a smooth animation loop
+                        setTimeout(function() {
+
+                            // This will make the logo move to its place once more, and become small again
+                            offerMessageLogo.style.transform = 'translate(0%, 0%) scale(1)';
+
+                            // Second Animation
+                            // This make the logo flip in the middle of the first animation
+                            setTimeout(function() {
+                                offerMessageLogo.style.transform += ' rotate(360deg)';
+                            }, 400);
+
+                        }, 1000);
+                    }
+                    // This will be applied on phones in portrait mode only, enculding tablets in portrait mode
+                    else if (landscapeMediaQuery.matches && currentScreenWidth < tabletsMinWidth)
+                    {
+                        offerMessageLogo.style.transform = 'scale(4)';
+
+
+                        // After a delay, reset the transformation to the initial state to create a smooth animation loop
+                        setTimeout(function() {
+                            offerMessageLogo.style.transform = 'scale(1)';
+
+                            setTimeout(function() {
+                                offerMessageLogo.style.transform += ' rotate(360deg)';
+                            }, 400);
+
+                        }, 1000);
+                    }
+                    // This will be applied on tablets in landscape mode only
+                    else if (currentScreenWidth >= tabletsMinWidth && currentScreenWidth < tabletsMaxWidth)
+                    {
+                        offerMessageLogo.style.transform = 'translate(100%, 10%) scale(3.8)';
+
+
+                        // After a delay, reset the transformation to the initial state to create a smooth animation loop
+                        setTimeout(function() {
+                            offerMessageLogo.style.transform = 'translate(0%, 0%) scale(1)';
+
+                            setTimeout(function() {
+                                offerMessageLogo.style.transform += ' rotate(360deg)';
+                            }, 400);
+
+                        }, 1000);
+                    }
+                    // This will be applied on computer screens only
+                    else if(currentScreenWidth >= computersMinWidth)
+                    {
+                        offerMessageLogo.style.transform = 'translate(61.2%, -209%) scale(2.8)';
+
+
+                        // After a delay, reset the transformation to the initial state to create a smooth animation loop
+                        setTimeout(function() {
+                            offerMessageLogo.style.transform = 'translate(0%, 0%) scale(1)';
+
+                            setTimeout(function() {
+                                offerMessageLogo.style.transform += ' rotate(360deg)';
+                            }, 400);
+
+                        }, 1000);
+                    }
+                }
+
+            // Thi
+            document.addEventListener("DOMContentLoaded", function() {
+
+                // The variable that contains the offer message pop up text
+                // This will appear only when the user load the page
+                var offerMessage = "Seize our exclusive Universal Access offer now! Gain a one-year membership with unlimited access to all of our branches and enjoy the benefits to the fullest!";
+
+                // function call, that will display offer pop up, when the user load the page
+                displayOffer(offerMessage)
+
+                // calling the function animateLogo() that will animate the logo, found in the offer pop up
+                animateLogo()
+
+            });
+
+
+        </script>
+    </head>
+    <body>
+
+        <!-- The parent container that holds the message -->
+        <!-- It actaully cosists of three things:
+                1- A background (the styling of #boxBack itself)
+                2- #boxWrap a <div> that contains the message text and two buttons
+                3- #boxTxt a <div> that contains the message text only
+        -->
+        <div id="boxBack">
+            <!--#boxWrap a <div> that contains a #boxTxt <div> and two buttons-->
+            <div id="boxWrap">
+                <!-- A closing button which closes the offer message-->
+                <!-- The following is an exlpnaintion on how it actually closes the message:
+                - When user clicks on "close" button it actyally calls displayOffer(), without any inputs !, when there is no function finds an empty (undefined) varibale as an input
+                it then removes the ".show" class from "#boxBack" div, then the #boxBack div is left with its original CSS styling of "display: none;", and #boxBack.show {display: flex;}, becomes inactive !
+            -->
+                <input class="close-button btn " type="button" value="close" onclick="displayOffer()">
+                <!-- A div that contains the animated logo and offer message text -->
+                <div class="logoAndOffer row">
+                    <div class="col-12 col-lg-2 d-flex justify-content-center align-items-center">
+                        <img id="offer-logo" class="offer-logo" src="images/balancegym-logo.png" alt="Balance Gym Logo">
+                    </div>
+                    <!-- A div that only contains the offer text-->
+                    <div class="col-12 col-lg-10" id="boxTxt">
+                    </div>
+                </div>
+
+                <!--Anchor element that contains the grab offer button  -->
+                <a class="GrabOffer-button btn" href="becomeAMember.html">GRAB OFFER</a>
+            </div>
+        </div>
+
+
+        <!--Section 1, the hero section-->
+        <section class="section-1">
+            <img class="section1-bg-image" src="images/section1_image.jpg" alt="gym floor">
+
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mb-2 mb-lg-0 gap-3">
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link active" aria-current="page" href="becomeAMember.html">BECOME A MEMBER</a>
+                        </li>
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link active" aria-current="page" href="aboutUs.html">ABOUT US</a>
+                        </li>
+                        <li class="nav-item ms-auto">
+                            <a class="nav-link active" aria-current="page" href="meetOurTeam.html">MEET OUR TEAM</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+                </div>
+            </nav>
+
+
+            <div class="hero">
+                <img class="logo" src="images/balancegym-logo.png" alt="Balance Gym Logo">
+                <h1 class="hero-content">BE YOUR <span class="highlighted-word-in-hero">BEST</span></h1>
+                <a href="becomeAMember.html" class="btn btn-secondary join-now-button">JOIN TODAY</a>
+            </div>
+
+        </section>
+
+        <!-- Section 2 of the page, the "About Us" section -->
+        <section class="container-fluid section-2 ">
+            <div class="row">
+                <div class="col-xxl-5 col-12 section_2-writing p-3">
+                        <h1 class="display-4 about-us-headline fst-italic">
+                            ABOUT <span class="balance-gym-word">BALANCE GYM</span> FAMILY
+                        </h1>
+                        <p class="about-us-paragraph px-2">Balance Gym was Established in 2012, Led by our founder, Mohamed Assab, a renowned figure in the fitness industry with over 25 years of experience, our trainers are among the best in the country. Mohamed Assab's expertise as a bodybuilder and nutritionist adds an extra layer of knowledge and guidance to our mission.</p>
+                    <div class="learMoreLink">
+                        <a class="" href="#about us page">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-xxl-3 col-12 col-md-6">
+                    <img class="nasrCity1 float-lg-end float-start" src="images/nasrCity1.jpg" alt="gym floor image">
+                </div>
+                <div class="col-xxl-3 col-12 col-md-6">
+                    <img class="nasrCity2 float-lg-start float-end" src="images/nasrCity2.jpg" alt="gym floor image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3 of the page, the "What we Offer" section -->
+        <section class="container-fluid section-3">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <h1 class="display-4 WhatWeOffer-headline fst-italic d-flex justify-content-center">WHAT WE OFFER</h1>
+                    <p class="d-flex justify-content-center text-light WhatWeOffer-paragraph">We're committed to bringing you the best workout experience.</p>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center p-2 gap-5 section-3_images pb-5">
+
+                <div class="col-lg-3 col-12 serviceImage-col_1">
+                    <h5 class="WhatWeOffer-image-Writing fst-italic text-light">ASK ABOUT<br> UNIVERSAL ACCESS</h5>
+                </div>
+                <div class="col-lg-3 col-12 serviceImage-col_2">
+                    <h5 class="WhatWeOffer-image-Writing fst-italic text-light">PERSONAL TRAINING</h5>
+                </div>
+                <div class="col-lg-3 col-12 serviceImage-col_3">
+                    <h5 class="WhatWeOffer-image-Writing fst-italic text-light">BOXING<br>MASSAGE<br>AND MORE</h5>
+                </div>
+
+            </div>
+        </section>
+
+         <!-- Section 4 of the page, the "Get In Touch" section -->
+         <section class="container-fluid section-4">
+
+            <div class="row Section-4-row_1 align-items-center" >
+                <div class="col-12">
+                    <h1 class="display-4 GetInTouch-headline fst-italic">GET IN TOUCH<br>TODAY</h1>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center Section-4-row_2 py-5">
+                    <div class="col-lg-6 col-12 MenLocation-col_1">
+                        <h4 class="fst-italic contactInfo-headline d-flex justify-content-center ">MEN LOCATION (BalanceGym)</h4>
+                        <div class="row">
+                            <div class="col-12 col-md-6 ">
+                                <p>Sheraton - Heliopolis<br><span class="indent"><a href="https://goo.gl/maps/LUK8Qf4gTvbyqBbh9">Show on Map</a></span><br><span class="indent">01028028461 - 01100510294</span><br></p>
+                            </div>
+                            <div class="col-12 col-md-6 ">
+                                <p>Nasr City  - Makram Ebid<br><span class="indent"><a href="https://goo.gl/maps/Pjnpy5UGw6v4kRKs7">Show on Map</a></span><br><span class="indent">01022229573 - 01022229574</span><br></p>
+                            </div>
+                            <div class="col-12 col-md-6 ">
+                                <p>Thawra Street - Behind Almaza Central<br><span class="indent"><a href="https://goo.gl/maps/raQRDs2ML7eAYNar7">Show on Map</a></span><br><span class="indent">1000500621 - 01000074194</span><br></p>
+                            </div>
+                            <div class="col-12 col-md-6 ">
+                                <p>5th settlement - 90th street<br><span class="indent"><a href="https://goo.gl/maps/DLcMXfCiRimWhQjG6">Show on Map</a></span><br><span class="indent">01118888861 - 01000978623</span><br></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-md-center justify-content-start ">
+                                <p>1st settlement - Emerald Mall<br><span class="indent"><a href="https://goo.gl/maps/nnRUUhck2k8FibUk8">Show on Map</a></span><br><span class="indent">01028028458 - 01028028463</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 LadiesLocation-col_2 ">
+                        <h4 class="fst-italic contactInfo-headline d-flex justify-content-center">LADIES LOCATION (HersGym)</h4>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <p >Heliopolis - Under Nozha bridge<br><span class="indent"><a href="https://goo.gl/maps/G1NQxeZRxgaEmgp9A">Show on Map</a></span><br><span class="indent">01065074700 - 01028028460</span><br></p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <p>1st-settlement - Emerald Mall<br><span class="indent"><a href="https://goo.gl/maps/MahRWBLbmRG3jqdw6">Show on Map</a></span><br><span class="indent">01028028455 - 01065063000</span><br></p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <p>Zamalek - 15, Ismail Mohamed St<br><span class="indent"><a href="https://goo.gl/maps/pGmQZUdh3xBZAtgV8">Show on Map</a></span><br><span class="indent">1000500621 - 01000074194</span><br></p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <p>Nasr City - Makram Ebid<br><span class="indent"><a href="https://goo.gl/maps/NqZn6UV9z6zznTxP9">Show on Map</a></span><br><span class="indent">01000978431 - 01000978115</span><br></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-md-center justify-content-start">
+                                <p>Sheraton - Behind El-Seddik Mosque<br><span class="indent"><a href="https://goo.gl/maps/pDsQapUpNA9Ni1Kf7">Show on Map</a></span><br><span class="indent">01014530796 - 01000980520</span></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+            </div>
+        </section>
+
+        <!-- Section 5 of the page, the section -->
+        <section class="container-fluid section-5 my-4 pt-5">
+            <div class="row Section-5-row_1 ">
+                <div class="col-12 d-flex justify-content-around">
+                    <img class="Balance-logo-footer" src="images/balancegym-logo.png" alt="Balance Gym Logo">
+                    <img class="Hers-logo-footer" src="images/NutriNations_logo_cropped.png" alt="Balance Gym Logo">
+                    <img class="Nutri-logo-footer" src="images/Hers_logo_cropped.png" alt="Balance Gym Logo">
+                </div>
+            </div>
+            <div class="row Section-5-row_2 mt-4">
+                <div class="col-12 mt-5 ">
+                    <p class="text-light d-flex justify-content-center copyright-text">Copyright @ 2023 YAQEEN, Inc.</p>
+                    <p class="text-secondary d-flex justify-content-center">Proudly made by T.S</p>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>
+

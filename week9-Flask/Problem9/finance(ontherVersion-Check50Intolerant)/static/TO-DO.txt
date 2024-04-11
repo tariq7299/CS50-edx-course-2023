@@ -1,0 +1,96 @@
+
+
+
+ """GLOBAL"""
+- add the cash shared div to all pages ecept login and register @#
+- add "Hello {{user name}} to every html page" @#
+- change .quote-section to .hover-effect @#
+- Add holding value total total to shared cash div, and also make a seperate function that is contain the three small functions called @#
+"calculate_current_account_totals" @#
+- Removes sell and buy buttons from quote and index or fix them @#
+- Make the the if create database tables in the index function only, also the indexs @#
+- change #paymentInfo to checkoutInfo @#
+- Chanmge calculate_cash_after_selling and calculate_remaining_cash to   calculate_cash_after_transaction(transaction_type) @#
+- vchnage ccalculate_currwnt cash to extract_current_cash_from_account @#
+- add time to date columns of databases @#
+- change the class of make-purchase button @#
+- Add .main-header to  all main header in html pages @#
+- understand this ----> "SELECT ROW_NUMBER() OVER (ORDER BY shares) AS RowNumber, stock_symbol, shares FROM users_stocks WHERE user_id = ?", current_user_id))) @#
+
+"""register"""
+- Add  already have an account at the end of register.html !@
+- fix bootstrap linking @#
+- Fix the CDN block problerm
+- validate SQL connection to db error @#
+- fix the nav bar on mobile devices as it doesnot collapse after you expand it """"asjkdnsandlsanmdklsa""""
+- If (and only if) already comfortable with SQL, you’re welcome to use SQLAlchemy Core or Flask-SQLAlchemy (i.e., SQLAlchemy ORM) instead of cs50.SQL. (use it)
+- make def register() cleaner and better and write comments @#
+-
+
+""""quote"""
+- Change names of /search function @#
+- show more than one quote from the search qyuery @#
+- fix the front end of quote.html,, also the CSS @#
+- fix issue of null/none of not found symbol in the javascript code in quote @#
+- make the java script code of ajax as clean as possible @#
+- know the meaning of || @#
+- Go back to the cs50 requirments of quote @#
+- change quotess name to something better @#
+- what is this ???? .quotes-tabel tbody tr:nth-of-type(odd) {
+    background-color: rgb(179, 208, 255, 0.3) @#
+}
+- MAke the quote html look better @#
+- ${name} in javascript ?? @#
+- Make buy button directs user to buy page, and fill in the buy filed autpomatically @#
+- fix /quote js and /search_quote to validate "quote" in app.py, and not the java scripte
+((or maybe not)) @#
+
+
+""""buy"""
+- Make symbol as italic and strong @#
+- Write errors @#
+- add broker fees @#
+-make the submit button on the side of input field @#
+-change name of "search_and_buy" route to something else @#
+- styl buy using CSS @#
+- add loading after clicking on buy button @#
+- change Input value var in js and app to something better @#
+- errors proofing @#
+- add cash in account at the top right of screen
+- What will happen if i bought shares from the same company I bought from before (SQL tables) @#
+- Create a table that is solely buld to recognize the transaction info of each asset user owns @#
+- Fix the input feild labels and placeholders @#
+- understand (error) @#
+- change cash shaerd_div to somthing better @#
+- make the buy button directs me to buy checkout and paymnet info fills automatically @#
+- group payment info functoins together @#
+- make "price per share" |current price per share" @#
+- Change make purchase button to buy stock @#
+- change buy byuuton to "lookup" @#
+- change the place of "error_message" @#
+- change total_acq @#
+- change shares to shares_to_buy @#
+- create seperate flash messages variables @#
+
+""" shares"""
+- style the page using CSS @#
+- make the button inline with the input field @#
+-- change Input value var in js and app to something better @#
+- errors proofing @#
+-
+
+""" checkout ""'
+- What is "window.location.href = response.redirect_route;" and "jsonify({'redirect_route': url_for('index')})" @#
+- colorize variable holders using CSS in flash messages
+- abort() ??
+- with statment ?? @#
+- change the palce of that line     # Get the current today's date
+                                    current_date = datetime.now().date()   @#
+- sd
+
+""" index ""'
+- make sell button directs me to checkout automatically @#
+- add some padding st the "stock owned" @#
+
+
+- orgnaize helpers.py and make parent functions in app.py

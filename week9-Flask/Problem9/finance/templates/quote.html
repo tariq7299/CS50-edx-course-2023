@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search for a Quote
+{% endblock %}
+
+{% block main %}
+
+
+    <div class="user-info">
+        <!-- This is shared HTML template that I created to be shared in some pages. It will display the current cash and the grand total of the account. -->
+        {% include 'shared_user_info.html' %}
+    </div>
+
+    <div class="display-4 mx-auto mt-1 mb-4 main-header">Search for a quote</div>
+    <form action="/quote" method="post" class="hover-effect">
+        <div class="user-input-form">
+            <fieldset>
+                <div class="quote-symbol-input">
+                <input autocomplete="off" autofocus class=" mx-auto" id="symbol" name="symbol" placeholder="nflx/ ms/ na ...etc" type="text">
+                <button class="btn btn-primary" id="submit-quite-symbol" type="submit">Lookup</button>
+            </fieldset>
+        </div>
+    </form>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+<div class="" id="quote-symbol"><span class="quote-symbol-word">{{ quote_symbol }}</span></div>
+<div class="table-responsive">
+    <table class="">
+        <thead>
+            <tr>
+                <th>Current Price Per Share</th>
+                <th>Total Shares</th>
+                <th>Holding Value</th>
+                <th>Trading Fees</th>
+                <th>Total Income</th>
+                <th>Account Cash After Selling</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="quote-price">{{ quote_price }}</td>
+                <td id="shares">{{ shares }}</td>
+                <td id="holding-value">{{ holding_value }}</td>
+                <td id="trading-fees">{{ trading_fees }}</td>
+                <td id="total-amount">{{ total_amount }}</td>
+                <td id="cash-after-transaction">{{ cash_after_transaction }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-primary" type="submit" name="sell-shares-button" id="sell-shares-button">Sell Shares</button>
+
+<script>
+    $(document).ready(function() {
+        $('#sell-shares-button').click(function() {
+            var quoteSymbol = $('#quote-symbol').text();
+            var quotePrice = $('#quote-price').text();
+            var shares = $('#shares').text();
+            var holdingValue = $('#holding-value').text();
+            var tradingFees = $('#trading-fees').text();
+            var totalAmount = $('#total-amount').text();
+            var cashAfterTransaction = $('#cash-after-transaction').text();
+
+            $.ajax({
+                type: 'POST',
+                url: '/checkout_selling',
+                contentType: 'application/json',
+                // JSON.stringify() will convert Javascript objects into JSON data.
+                data: JSON.stringify({ 'quoteSymbol': quoteSymbol, 'quotePrice': quotePrice, 'shares': shares, 'holdingValue': holdingValue, 'tradingFees': tradingFees, 'totalAmount': totalAmount, 'cashAfterTransaction': cashAfterTransaction}),
+                success: function(response) {
+                    if (response.success) {
+                    window.location.href = response.redirect_route;
+                    }
+                    else {
+                        // unsuccessful response here
+                        $('#checkoutInfo').html(response.error_message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', error);
+                }
+            });
+        });
+    });
+</script>
